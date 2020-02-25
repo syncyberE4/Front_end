@@ -1,0 +1,41 @@
+<div class="druiven-toevoegen text-center">
+  <mat-card>
+    <h2>Sensoren</h2>
+    <form #sensorForm class="text-center" (ngSubmit)="maakSensor()">
+
+      <div>
+        <mat-form-field>
+          <mat-label>Kies een vat</mat-label>
+          <select matNativeControl required [(ngModel)]="sensor.vatId" name="rol">
+            <option *ngFor="let vat of vaten" [ngValue]="vat.id" >
+              {{vat.label}}
+            </option>
+          </select>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <mat-label>Kies een sensortype</mat-label>
+          <select matNativeControl required [(ngModel)]="sensor.sensorTypeId" name="rol">
+            <option *ngFor="let sensortype of sensorTypes" [ngValue]="sensortype.id" >
+              {{sensortype.naam}} - {{sensortype.eenheid}}
+            </option>
+          </select>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Aansluitpin" type="number" name="aansluitpin" [(ngModel)]="sensor.aansluitpin" required minlength="1"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!sensorForm.checkValidity()">
+          <span *ngIf="!sensor.vatId || !sensor.sensorTypeId || !sensor.aansluitpin">Velden eerst invullen</span>
+          <span *ngIf="sensor.vatId && sensor.sensorTypeId && sensor.aansluitpin">Toevoegen</span>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

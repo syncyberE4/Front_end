@@ -1,0 +1,32 @@
+$buttonColor: #5d78ff;
+$buttonForegroundColor: white;
+
+.vinificatie-toevoegen {
+  margin: auto;
+  margin-top: 100px;
+  max-width: 450px;
+  max-height: 500px;
+
+  mat-form-field {
+    width: 100%;
+  }
+  textarea {
+    min-height: 75px;
+  }
+  .checkboxen {
+    text-align: left !important;
+  }
+  app-alarm-form{
+    margin: 20px;
+  }
+}
+app-alarm-form {
+  margin: 50px;
+}
+.checkbox{
+  display: flex;
+  justify-content: flex-start;
+}
+.submitbutton {
+  margin-top: 20px;
+}

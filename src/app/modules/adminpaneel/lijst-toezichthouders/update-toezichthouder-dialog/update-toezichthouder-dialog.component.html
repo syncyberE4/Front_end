@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>Toezichthouder aanpassen</h2>
+<form class="text-center" (ngSubmit)="updateToezichthouder()">
+  
+    <mat-dialog-content [formGroup]="form" #toeschouwerForm= "ngForm">
+    <div>
+        <mat-form-field>
+            <mat-label>Kies een gebruiker</mat-label>
+            <select matNativeControl [(ngModel)]="toezichthouder.gebruikerId" required formControlName="gebruikers">
+            <option *ngFor="let gebruiker of gebruikers" [ngValue]="gebruiker.id">
+                {{gebruiker.voornaam}} {{gebruiker.achternaam}}
+            </option>
+            </select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Kies een startdatum</mat-label>
+            <input matInput formControlName="startDatum" [(ngModel)]="toezichthouder.startDatum"
+             required [matDatepicker]="picker1"  [min]="today" [max]="toezichthouder.eindDatum">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Kies een einddatum</mat-label>
+            <input matInput formControlName="eindDatum" [(ngModel)]="toezichthouder.eindDatum" 
+            required [matDatepicker]="picker2"  [min]="toezichthouder.startDatum ? toezichthouder.startDatum : today">
+            <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+    </div>
+    <mat-error>{{error}}</mat-error>
+    </mat-dialog-content>
+</form>
+    <mat-dialog-actions>
+      <div class="text-center">
+        <button class="mat-raised-button"(click)="close()">Close</button>
+        <button class="mat-raised-button mat-primary" (click)="updateToezichthouder()" [disabled]="!toeschouwerForm.form.valid">Save</button>
+      </div>
+    </mat-dialog-actions>
+

@@ -1,0 +1,18 @@
+<div class="persprogramma-toevoegen text-center">
+  <mat-card>
+    <h2>Pers programma</h2>
+    <form #persForm class="text-center" (ngSubmit)="maakPersprogramma()">
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="naam" type="text" name="voornaam" [(ngModel)]="persprogramma.omschrijving" required minlength="1"/>
+        </mat-form-field>
+      </div>
+      <div>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!persForm.checkValidity()">
+          <span *ngIf="!persprogramma.omschrijving">Velden eerst invullen</span>
+          <span *ngIf="persprogramma.omschrijving">Toevoegen</span>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

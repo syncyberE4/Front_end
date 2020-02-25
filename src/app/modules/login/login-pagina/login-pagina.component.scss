@@ -1,0 +1,30 @@
+.login-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+mat-card{
+    max-width: 400px;
+    height: 500px;
+    text-align: center;
+}
+mat-form-field{
+    width: 200px;
+    margin-top: 25px;
+}
+
+mat-error{
+    width: 300px;
+}
+mat-card-title{
+  margin: 50px;
+  color: gray;
+}
+button {
+  margin-top: 50px;
+}
+
+.cursorPointer{
+  cursor: pointer;
+}

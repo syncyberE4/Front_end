@@ -1,0 +1,19 @@
+<div class="druiven-toevoegen text-center">
+  <mat-card>
+    <h2>Wijnsoort</h2>
+    <form #wijnsoortForm class="text-center" (ngSubmit)="maakWijnsoort()">
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="naam" type="text" name="naam" [(ngModel)]="wijnsoort.naam" required minlength="1"/>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!wijnsoortForm.checkValidity()">
+          <span *ngIf="!wijnsoort.naam">Velden eerst invullen</span>
+          <span *ngIf="wijnsoort.naam">Toevoegen</span>
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>

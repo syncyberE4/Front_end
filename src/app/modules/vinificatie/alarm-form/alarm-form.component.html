@@ -1,0 +1,32 @@
+<div class="alarm">
+  <form #alarmForm>
+    <h5 class="text-center">Maak een alarm voor dit sensor</h5>
+    <div>
+      <mat-form-field>
+        <input matInput required minlength="1" placeholder="Alarm bij hoger dan" type="number" name="alarmgroterdan" [(ngModel)]="alarmGroterdan.activatiewaarde" />
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field>
+        <input matInput required minlength="1" placeholder="Alarm bij lager dan" type="number" name="alarmkleinerdan" [(ngModel)]="alarmKleinerdan.activatiewaarde" />
+      </mat-form-field>
+    </div>
+
+    <!--  <div>-->
+    <!--    <label id="groterdan">Alarmeren bij</label><br>-->
+    <!--    <mat-radio-group [(ngModel)]="alarm.groterdan" [name]="sensor.id">-->
+    <!--      <mat-radio-button [value]="true">Hoger</mat-radio-button>-->
+    <!--      <mat-radio-button [value]="false">Lager</mat-radio-button>-->
+    <!--    </mat-radio-group>-->
+    <!--  </div>-->
+
+    <div class="text-center">
+      <button mat-raised-button (click)="addAlarm()" color="primary" [disabled]="submitted || !alarmForm.checkValidity()">
+        <span *ngIf="!alarmGroterdan.activatiewaarde || !alarmKleinerdan.activatiewaarde">Velden eerst invullen</span>
+        <span *ngIf="alarmGroterdan.activatiewaarde && alarmKleinerdan.activatiewaarde && !submitted">Maak alarm</span>
+        <span *ngIf="submitted">Alarm toegevoegd</span>
+      </button>
+    </div>
+  </form>
+</div>

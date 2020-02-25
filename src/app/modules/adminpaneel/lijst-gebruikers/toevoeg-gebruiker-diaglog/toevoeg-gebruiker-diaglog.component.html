@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>Gebruiker toevoegen</h2>
+<form class="text-center" (ngSubmit)="maakGebruiker()">
+  
+    <mat-dialog-content [formGroup]="form" #gebruikerForm= "ngForm">
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="Voornaam" type="text" required formControlName="voornaam" [(ngModel)]="gebruiker.voornaam"/>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="Achternaam" type="text" required formControlName="achternaam" [(ngModel)]="gebruiker.achternaam"/>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="Email" type="text" required formControlName="email" [(ngModel)]="gebruiker.email"/>
+            </mat-form-field>
+          </div>
+          <div>
+            <mat-form-field>
+              <input matInput placeholder="Telefoonnummer" type="text" required formControlName="telefoonnummer" [(ngModel)]="gebruiker.telefoonnummer"/>
+            </mat-form-field>
+          </div>
+          <mat-form-field>
+            <mat-label>Kies een rol</mat-label>
+            <select matNativeControl required [(ngModel)]="gebruiker.rol" required formControlName="rol">
+              <option *ngFor="let rol of rollen" [value]="rol" >
+                {{rol}}
+              </option>
+            </select>
+          </mat-form-field>
+    <mat-error>{{error}}</mat-error>
+    </mat-dialog-content>
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" [disabled]="!gebruikerForm.form.valid">Save</button>
+</mat-dialog-actions>
+</form>

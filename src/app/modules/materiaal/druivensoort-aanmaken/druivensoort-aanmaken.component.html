@@ -1,0 +1,6 @@
+<div class="row">
+  <div class="col text-center"><app-druivensoort-form (druivensoortToegevoegd)="submitted($event)"></app-druivensoort-form></div>
+</div>
+<div class="row">
+  <div class="col"><app-druivensoort-lijst [druivensoorten]="druivensoorten" (verwijderDruifId)="delete($event)"></app-druivensoort-lijst></div>
+</div>

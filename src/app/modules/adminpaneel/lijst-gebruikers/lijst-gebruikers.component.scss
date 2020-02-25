@@ -1,0 +1,62 @@
+  mat-table, table, div {
+    width: 100%;
+  }
+  mat-icon{
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .example-detail-row {
+    height: 0;
+  }
+  mat-header-row{
+    width: 100%;
+  }
+
+  .example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+
+  .example-element-row {
+    border-bottom-width: 0;
+  }
+
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+
+  .example-element-diagram {
+    min-width: 80px;
+    border: 2px solid black;
+    font-weight: lighter;
+    margin: 8px 0;
+    height: 104px;
+  }
+
+  .example-element-description-attribution {
+    opacity: 0.5;
+  }
+
+mat-card {
+  margin: 0px;
+  width: 100%;
+  height: 500px;
+	display: flex;
+  flex-direction: column;
+
+	mat-table{
+    width: 100%;
+		overflow-y: auto;
+    overflow-x: none;
+  }
+  .fill {
+		flex: 1;
+	}
+}
+.statuskolom{
+  width: 30px;
+  display: flex;
+  justify-content: flex-end;
+}

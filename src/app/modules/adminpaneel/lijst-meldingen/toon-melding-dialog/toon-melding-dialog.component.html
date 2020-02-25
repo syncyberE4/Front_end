@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Melding : Details</h2>
+<form class="text-center">
+  
+    <mat-dialog-content>
+        <table>
+            <col width="100">
+            <col width="130">
+            <tr>
+                <td>
+                    Boodschap: 
+                </td>
+                <td>
+                    {{melding.boodschap}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Datum: 
+                </td>
+                <td>
+                    {{melding.aanmaakDatum | date: 'dd/MM/yy hh:mm'}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Ontvanger: 
+                </td>
+                <td>
+                    {{melding.gebruiker.voornaam}} {{melding.gebruiker.achternaam}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Vat: 
+                </td>
+                <td>
+                    {{melding.alarm.sensor.vat.label}}
+                </td>
+            </tr>
+        </table>
+    </mat-dialog-content>
+</form>
+    <mat-dialog-actions>
+        <button class="mat-raised-button"(click)="close()">Close</button>
+        <button *ngIf="!melding.bevestig" class="mat-raised-button mat-primary" (click)="bevestigMelding()">Bevestig</button>
+    </mat-dialog-actions>
