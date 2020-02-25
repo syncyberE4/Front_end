@@ -1,9 +1,0 @@
-<div class="row">
-  <app-lijst-gebruikers class="col-12" *ngIf="dataLoaded" [gebruikers]="gebruikers" (verwijdertGebruiker)="verwijderGebruiker($event)"></app-lijst-gebruikers>
-</div>
-<div class="row">
-  <!--<div class="col"><app-gebruiker-toevoegen (gebruikerToegevoegd)="submitted($event)"></app-gebruiker-toevoegen></div>-->
-  <app-lijst-toezichthouders class="col-lg-6 col-12" [gebruikers]="gebruikers"></app-lijst-toezichthouders>
-  <app-lijst-meldingen class="col-lg-6 col-12"></app-lijst-meldingen>
-</div>
-
